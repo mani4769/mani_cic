@@ -5,3 +5,152 @@
   background-color: red;
 }
 
+.blue
+{
+  height: 20vh;
+  width: 120%;
+  background-color: blue;
+}
+
+.green
+{
+  height: 20vh;
+  width: 120%;
+  background-color: greenyellow;
+}
+
+.sky
+{
+  height: 20vh;
+  width: 120%;
+  background-color: skyblue;
+}
+.red2
+{
+  height: 60vh;
+  width: 50%;
+  background-color: red;
+  
+  
+}
+
+
+.blue2
+{
+  height: 30vh;
+  width: 100%;
+  background-color: blue;
+  margin-left: 100%;
+}
+.yellow
+{
+  height: 30vh;
+  width: 100%;
+  background-color: yellow;
+  
+  margin-left: 100%;
+}
+.mani
+{
+  height: 60vh;
+  width: 100%;
+  background-color: whitesmoke
+}
+.blue3
+{
+ height: 20vh;
+  width: 75%;
+  background-color: blue;
+}
+.green2
+{
+  height: 20vh;
+  width: 60%;
+  background-color: greenyellow;
+  margin-left: 100%;
+}
+.sky2
+{
+  height: 38vh;
+  width: 60%;
+  background-color: skyblue;
+}
+
+.pink
+{
+  height: 38vh;
+  width: 100%;
+  background-color: pink;
+  margin-left: 100%;
+  
+  
+}
+.m
+{
+ background-color: white;
+  height: 0.5vh;
+  width: 100%;
+}
+.sky3
+{
+ width: 60%;
+  height: 15vh;
+  background-color: skyblue;
+}
+.pink2
+{
+  margin-left: 100%;
+  height: 15vh;
+  width: 100%;
+  background-color: pink;
+}
+.row1
+{
+  height: 20vh;
+  width: 40%;
+  background-color: greenyellow;
+  margin-right: 100%
+}
+.row2
+{
+  height: 20vh;
+  width: 120%;
+  background-color: yellow;
+  margin-left: 80%;
+  
+}
+.row3
+{
+  height: 20vh;
+  width: 83%;
+  background-color: purple;
+  margin-left: 100%;
+}
+.col1
+{
+  height: 20vh;
+  width: 40%;
+  background-color: pink;
+  margin-right: 100%
+}
+.col2
+{
+  height: 20vh;
+  width: 80%;
+  background-color: skyblue;
+  margin-left: 100%
+}
+.col3
+{
+  height: 20vh;
+  width: 80%;
+  background-color: white;
+  margin-left: 100%
+}
+.col4
+{
+  height: 20vh;
+  width: 90%;
+  background-color: goldenrod;
+  margin-left: 100%
+}
