@@ -1,13 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
-<h1>This is a Mani</h1>
-<p>This is a paragraph.</p>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-mod-3">
+            
+            </div>
+            <div class="col-md-6 main">
+                 <form>
+                    <h2> Registration Form</h2>
+                    <input type="text" class="box" id="name" name="name" placeholder="Name" required/>
+                    <br>
+                    <input type="text" class="box" id="age" name="age" placeholder="Age" required/>
+                    <br>
+                    <input type="text" class="box" id="email" name="email" placeholder="EmailId" required/>
+                    <br>
+                    <input type="text" class="box" id="phno" name="phno" placeholder="Mobile" required/>
+                    <br>
+                    <input type="text" class="box" id="gender" name="gender" placeholder="Gender" required/>
+                    <br>
+                    <input type="text" class="box" id="password" name="password" placeholder="Password" required/>
+                    <br>
+                    <button onclick="Insert()" type="submit" value="Submit" id="submit">register</button>
+                    <button onclick="Retrive()" type="submit" value="Submit" id="vasu">Retrive</button>
+                </form>
+            </div>
+        </div>
+    </div>
+ <script src="index.js"></script>
 </body>
 </html>
-S

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadana Attendance</title>
+    <style>
+        .container {
+            margin: 20px auto;
+            width: 80%;
+        }
+        table {
+            width: 110%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 3px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            white-space: nowrap;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tbody tr:nth-child(odd) {}
+        tr {
+            height: 8vh;
+        }
+        th, td {
+            border: none;
+        }
+        th:first-child, td:first-child {
+            width: 25%;
+        }
+        th:nth-child(2), td:nth-child(2) {
+            width: 25%;
+        }
+        th:nth-child(3), td:nth-child(3) {
+            width: 25%;
+        }
+        th:nth-child(4), td:nth-child(4) {
+            width: 25%;
+        }
+        th:nth-child(5), td:nth-child(5) {
+            width: 25%;
+        }
+        th:nth-child(6), td:nth-child(6) {
+            width: 25%;
+        }
+    </style>
+</head>
+<body><br><br>
+    <div class="name" style="display: flex;flex-direction: row; margin-left: 10vh;">
+        <div class="first">
+            <img src="Screenshot 2024-04-19 185720.png" alt="mani" style="margin-left: 50vh; margin-top: 10%;">
+        </div>
+        <div class="second">
+            <h1 style="margin-left: 10%;width: 200%; margin-top: 10vh; font-size: 70px; color: #d38585;display: flex;flex-direction: row;">AS-TEAMS APP'S</h1>
+        </div>
+    </div><br><br><br>
+    <div class="buttons" style="display: flex;flex-direction: row;">
+        <div class="button1">
+            <button class="team-button" data-team="1" style="margin-left: 15vh;font-size: 3.0vh; color: #d38585; background-color: blue;border-radius: 3vh;width: 50%;">TEAM-1</button>
+        </div>
+        <div class="button1">
+            <button class="team-button" data-team="2" style="margin-left: 15vh;font-size: 3.0vh; color: #d38585; background-color: blue;border-radius: 3vh;width: 50%;">TEAM-2</button>
+        </div>
+        <div class="button1">
+            <button class="team-button" data-team="3" style="margin-left: 15vh;font-size: 3.0vh; color: #d38585; background-color: blue;border-radius: 3vh;width: 50%;">TEAM-3</button>
+        </div>
+        <div class="button1">
+            <button class="team-button" data-team="4" style="margin-left: 15vh;font-size: 3.0vh; color: #d38585; background-color: blue;border-radius: 3vh;width: 50%;">TEAM-4</button>
+        </div>
+        <div class="button1">
+            <button class="team-button" data-team="5" style="margin-left: 15vh;font-size: 3.0vh; color: #d38585; background-color: blue;border-radius: 3vh;width: 50%;">TEAM-5</button>
+        </div>
+        <div class="button1">
+            <button class="team-button" data-team="6" style="margin-left: 15vh;font-size: 3.0vh; color: #d38585; background-color: blue;border-radius: 3vh;width: 50%;">TEAM-6</button>
+        </div>
+        <div class="button1">
+            <button class="team-button" data-team="7" style="margin-left: 15vh;font-size: 3.0vh; color: #d38585; background-color: blue;border-radius: 3vh;width: 50%;">TEAM-7</button>
+        </div>
+    </div>
+    <div id="team-details"></div>
+    
+    <script>
+        const teams = {
+            1: [
+                { regNo: '21B91A5408', name: 'RAMSAI (LEAD)', branch: 'AIDS', year: '3' },
+                { regNo: '21B91A5468', name: 'JEERU PRAVEEN', branch: 'AIDS', year: '3' },
+                { regNo: '21B91A54I4', name: 'VEGI VENKATA KAVERI', branch: 'AIDS', year: '3' },
+                { regNo: '22B95A0503', name: 'BENDI KUSUMA SARANYA', branch: 'CSE', year: '3' }
+            ],
+            2: [
+                { regNo: '21B91A6107', name: 'GANESH (LEAD)', branch: 'AIML', year: '3' },
+                { regNo: '21B91A5493', name: 'LINGISETTI ROHINI', branch: 'AIDS', year: '3' }
+            ],
+            3: [
+            { regNo: '	21B91A54B7', name: 'SANJAY KUMAR (LEAD)', branch: 'AIDS', year: '3' },
+                { regNo: '	22B95A0520', name: 'MULA BHANU', branch: 'CSE', year: '3' },
+                { regNo: '	21B91A6157', name: 'T VARSHIT', branch: 'AIML', year: '3' },
+                { regNo: '	21B91A54A2', name: 'DIVYA HARSHITHA MANDLA', branch: 'AIDS', year: '3' }
+            ],
+            4: [
+                { regNo: '	21B91A05T2', name: 'SIMMA TEJESWARARAO (LEAD)', branch: 'CSE', year: '3' },
+                { regNo: '	21B91A54G1', name: 'SARAGADAM MURARI VENKATESH', branch: 'AIDS', year: '3' },
+                { regNo: '	21B91A0428', name: 'CHARISHMA DASI', branch: 'ECE', year: '3' },
+                { regNo: '	21B91A04I3', name: 'PILLI.GAMYA GEETHIKA', branch: 'ECE', year: '3'  }
+            ],
+            5: [
+                { regNo: '	21B91A0454', name: 'SRIRAM GANDROTHU (LEAD)', branch: 'ECE', year: '3' },
+                { regNo: '21B91A1291', name: 'MANDALA NAGABHUSHAN', branch: 'IT', year: '3' },
+                { regNo: '	21B91A5482', name: 'KEERTANA PENUGONDA', branch: 'AIDS', year: '3' },
+                { regNo: '	22B95A0529', name: 'Y.CHARISHMA', branch: 'CSE', year: '3' }
+            ],
+            6: [
+            { regNo: '	21B91A1225', name: 'B SAILAKSHMI (LEAD)', branch: 'IT', year: '3' },
+                { regNo: '	21B91A1223', name: 'BONTHAGARLA TEJASWI', branch: 'IT', year: '3' },
+                { regNo: '	21B91A12G1', name: 'SHAIK MOHAMMED HANEEF', branch: 'IT', year: '3' },
+                { regNo: '	21B91A5487', name: 'KOTA.GOWRI', branch: 'AIDS', year: '3' }
+            ],
+            7: [
+                { regNo: '	22B91A4752', name: 'THIRUMALLA SAI NAGA MANIKANTA(Lead)', branch: 'CIC', year: '3' }
+            ],
+        };
+
+        function showTeamDetails(team) {
+            const teamDetails = `
+                <div class="container" style="margin-left: 10vh;margin-top:5vh">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><h2 style="color: darkgreen;">Registration Number</h2></th>
+                                <th><h2 style="color: darkgreen;">Name</h2></th>
+                                <th><h2 style="color: darkgreen;">Branch</h2></th>
+                                <th><h2 style="color: darkgreen;">Year</h2></th>
+                                <th><h2 style="color: darkgreen;">Streak</h2></th>
+                                <th><h2 style="color: darkgreen;margin-left: 10vh;">Attendance</h2></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${generateTableRows(teams[team])}
+                        </tbody>
+                    </table>
+                </div>`;
+            document.getElementById('team-details').innerHTML = teamDetails;
+            attachButtonListeners();
+            checkButtonStates();
+        }
+
+        function generateTableRows(students) {
+            return students.map(student => `
+                <tr data-regno="${student.regNo}">
+                    <td>${student.regNo}</td>
+                    <td>${student.name}</td>
+                    <td>${student.branch}</td>
+                    <td>${student.year}</td>
+                    <td class="streak">${getStoredStreak(student.regNo)}</td>
+                    <td><button class="attend-button" style="margin-left: 11vh;border-radius: 2vh;font-size: 3vh;color:blue;background-color:pink">Attend</button></td>
+                </tr>
+            `).join('');
+        }
+
+        function getStoredStreak(regNo) {
+            return localStorage.getItem(`streak-${regNo}`) || 0;
+        }
+
+        function attachButtonListeners() {
+            document.querySelectorAll('.attend-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const regNo = row.getAttribute('data-regno');
+                    handleAttendance(regNo, row);
+                });
+            });
+        }
+
+        function handleAttendance(regNo, row) {
+            incrementStreak(regNo, row);
+            const attendButton = row.querySelector('.attend-button');
+            attendButton.disabled = true;
+            const disableTime = new Date().getTime() + (1440 * 60 * 1000); 
+            localStorage.setItem(`attend-${regNo}`, disableTime);
+
+            setTimeout(() => {
+                attendButton.disabled = false;
+                localStorage.removeItem(`attend-${regNo}`);
+            }, 1440 * 60 * 1000); 
+        }
+
+        function incrementStreak(regNo, row) {
+            const streakCell = row.querySelector('.streak');
+            let streak = parseInt(streakCell.textContent, 10);
+            streak += 1;
+            streakCell.textContent = streak;
+            localStorage.setItem(`streak-${regNo}`, streak);
+        }
+
+        function checkButtonStates() {
+            const now = new Date().getTime();
+            document.querySelectorAll('.attend-button').forEach(button => {
+                const row = button.closest('tr');
+                const regNo = row.getAttribute('data-regno');
+                const disableTime = localStorage.getItem(`attend-${regNo}`);
+                if (disableTime && now < disableTime) {
+                    button.disabled = true;
+                } else {
+                    button.disabled = false;
+                }
+            });
+        }
+
+        document.querySelectorAll('.team-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const team = this.getAttribute('data-team');
+                showTeamDetails(team);
+            });
+        });
+    </script>
+</body>
+</html>

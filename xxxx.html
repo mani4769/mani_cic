@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadana Attendance</title>
+    <style>
+        .container {
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            white-space: nowrap;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        tr {
+            height: 8vh;
+        }
+
+        th, td {
+            border: none;
+        }
+
+        th:first-child,
+        td:first-child {
+            width: 20%;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 20%;
+        }
+
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 20%;
+        }
+
+        th:nth-child(4),
+        td:nth-child(4) {
+            width: 20%;
+        }
+
+        th:nth-child(5),
+        td:nth-child(5) {
+            width: 10%;
+        }
+
+        th:nth-child(6),
+        td:nth-child(6) {
+            width: 10%;
+        }
+
+        .name {
+            display: flex;
+            flex-direction: row;
+            margin-left: 10vh;
+        }
+
+        .name .first img {
+            margin-left: 50vh;
+            margin-top: 10%;
+        }
+
+        .name .second h1 {
+            margin-left: 10%;
+            width: 200%;
+            margin-top: 10vh;
+            font-size: 70px;
+            color: #d38585;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .buttons .button1 {
+            margin-left: 15vh;
+        }
+
+        .buttons .button1 button {
+            font-size: 3.0vh;
+            color: #d38585;
+            background-color: blue;
+            border-radius: 3vh;
+            width: 50%;
+        }
+    </style>
+</head>
+<body><br><br>
+    <div class="name">
+        <div class="first">
+            <img src="Screenshot 2024-04-19 185720.png" alt="mani">
+        </div>
+        <div class="second">
+            <h1>AS-TEAMS APP'S</h1>
+        </div>
+    </div><br><br><br>
+    <div class="buttons">
+        <div class="button1">
+            <button class="team-button" data-team="1">TEAM-1</button>
+        </div>
+        <div class="button1">
+            <button class="team-button" data-team="2">TEAM-2</button>
+        </div>
+        <div class="button1">
+            <button class="team-button" data-team="3">TEAM-3</button>
+        </div>
+        <div class="button1">
+            <button class="team-button" data-team="4">TEAM-4</button>
+        </div>
+        <div class="button1">
+            <button class="team-button" data-team="5">TEAM-5</button>
+        </div>
+        <div class="button1">
+            <button class="team-button" data-team="6">TEAM-6</button>
+        </div>
+        <div class="button1">
+            <button class="team-button" data-team="7">TEAM-7</button>
+        </div>
+    </div>
+    <div id="team-details"></div>
+
+    <script>
+        function showTeamDetails(team) {
+            const teamDetails = `
+                <div class="container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><h2 style="color: darkgreen;">Registration Number</h2></th>
+                                <th><h2 style="color: darkgreen;">Name</h2></th>
+                                <th><h2 style="color: darkgreen;">Branch</h2></th>
+                                <th><h2 style="color: darkgreen;">Year</h2></th>
+                                <th><h2 style="color: darkgreen;">Streak</h2></th> 
+                                <th><h2 style="color: darkgreen;">Attendance</h2></th>   
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${generateTableRows()}
+                        </tbody>
+                    </table>
+                </div>`;
+
+            document.getElementById('team-details').innerHTML = teamDetails;
+            attachButtonListeners();
+        }
+
+        function generateTableRows() {
+            const students = [
+                { regNo: '12345', name: 'John Doe', branch: 'Computer Science', year: '3' },
+                { regNo: '12346', name: 'Jane Doe', branch: 'Mechanical Engineering', year: '2' },
+                { regNo: '12347', name: 'Jim Beam', branch: 'Electrical Engineering', year: '4' },
+                { regNo: '12348', name: 'Jack Daniels', branch: 'Civil Engineering', year: '1' },
+                { regNo: '12349', name: 'Johnny Walker', branch: 'Chemical Engineering', year: '2' }
+            ];
+
+            return students.map(student => `
+                <tr data-regno="${student.regNo}">
+                    <td>${student.regNo}</td>
+                    <td>${student.name}</td>
+                    <td>${student.branch}</td>
+                    <td>${student.year}</td>
+                    <td class="streak">${getStoredStreak(student.regNo)}</td>
+                    <td><button class="attend-button">Attend</button></td>
+                </tr>
+            `).join('');
+        }
+
+        function getStoredStreak(regNo) {
+            return localStorage.getItem(`streak-${regNo}`) || 0;
+        }
+
+        function attachButtonListeners() {
+            document.querySelectorAll('.attend-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const regNo = row.getAttribute('data-regno');
+                    handleAttendance(regNo, row);
+                });
+            });
+
+            checkButtonStates();
+        }
+
+        function handleAttendance(regNo, row) {
+            const streakCell = row.querySelector('.streak');
+            let streak = parseInt(streakCell.textContent, 10);
+            streak += 1;
+            streakCell.textContent = streak;
+            localStorage.setItem(`streak-${regNo}`, streak);
+
+            const attendButton = row.querySelector('.attend-button');
+            attendButton.disabled = true;
+            const disableTime = new Date().getTime() + (1 * 60 * 1000);
+            localStorage.setItem(`attend-${regNo}`, disableTime);
+
+            setTimeout(() => {
+                attendButton.disabled = false;
+                localStorage.removeItem(`attend-${regNo}`);
+            }, 1 * 60 * 1000);
+        }
+
+        function checkButtonStates() {
+            document.querySelectorAll('.attend-button').forEach(button => {
+                const row = button.closest('tr');
+                const regNo = row.getAttribute('data-regno');
+                const disableTime = localStorage.getItem(`attend-${regNo}`);
+
+                if (disableTime && new Date().getTime() < disableTime) {
+                    button.disabled = true;
+                    const timeRemaining = disableTime - new Date().getTime();
+                    setTimeout(() => {
+                        button.disabled = false;
+                        localStorage.removeItem(`attend-${regNo}`);
+                    }, timeRemaining);
+                }
+            });
+        }
+
+        document.querySelectorAll('.team-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const team = this.getAttribute('data-team');
+                showTeamDetails(team);
+            });
+        });
+
+        window.onload = function() {
+            checkButtonStates();
+        };
+    </script>
+</body>
+</html>

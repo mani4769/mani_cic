@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>astwebsite</title>
+    <link rel="stylesheet" href="astwebsite.css">
+    <style>
+        .like-count {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .heart-symbol {
+            color: red;
+            font-size: 1.5em;
+        }
+        .comment-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<nav style="margin-top: 1vh;">     
+    <ul>
+        <li style=" margin-left: 6vh;"><a href="astwebsite.html">HOME</a></li>
+        <li style="margin-left: 150vh; font-size: 3ch;"><a href="#login">Login</a></li>
+    </ul>
+</nav>
+<hr style="filter: blur(0.7px);">
+<nav style="background-color: white;">
+    <ul>
+        <li style=" margin-left: 6vh; font-size: 3vh;"><a href="astwebsite.html">___/\/\___Project Hub</a></li>
+        <li style="margin-left: 100vh; font-size: 3ch;">
+            <input style="height: 4vh; width: 180px; font-size: 2.5vh; border-radius: 1vh;" type="text" id="FirstName" placeholder="Search...." required onchange="fun('FirstName')" oninput="uppercase('FirstName')" onmouseover="mover(this)" onmouseout="mout(this)">
+        </li>
+    </ul>
+</nav>
+<hr style="filter: blur(0.7px);">
+<br>
+<div class="projectspurpose" style="background-color: whitesmoke; width: 100%; height: 100vh;">
+    <div class="buttons" style="display: flex;flex-direction: row;">
+        <div class="software" style="margin-left: 40vh;">
+            <a href="software.html"><button id="software" style="margin-top: 10VH; height: 5vh; width: 10%; font-size: 3vh;background-color: rgb(119, 119, 225);width: 200px;; border-radius: 1vh;">Software</button></a>
+        </div>
+        <div class="hardware" style="margin-left: 70vh;">
+            <a href="hardware.html"><button id="hardware" style="margin-top: 10VH; height: 5vh; width: 10%; font-size: 3vh;background-color: rgb(119, 119, 225);width: 200px;; border-radius: 1vh;">Hardware</button></a>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="project details" style="display: flex;flex-direction: row;">
+        <div class="projects details1" style="background-color:white; height: 70vh; width: 35%; margin-left: 4vh;">
+            <img src="loginform.jpg" style="height:30vh ; width:100%;"> 
+            <h2>projects title:sample login and registration page</h2>
+            <h3 style="background-color: light rgb(120, 30, 30);">project type:software</h3>
+            <h3>Technologies used:mango DB,Express,React,<br>Node</h3>
+            <a href="software.html"><button id="software" style="height: 3vh; width: 10%; font-size: 2vh;background-color: rgb(119, 119, 225);width: 150px;; border-radius: 1vh; margin-left: 15vh;">VIEW Project</button></a>
+            <br><br><br>
+            <div class="commentsandlikessection">
+                <div class="comment">  
+                    <input style="height: 4vh; width: 180px; font-size: 2.5vh; border-radius: 1vh; margin-left: 2vh;" type="text" id="comment1" placeholder="Comment.....">
+                </div>
+                <div class="send">
+                    <button style="height: 3vh; width: 10%; font-size: 2vh;background-color: rgb(119, 119, 225);width: 100px;; border-radius: 1vh; margin-left: 1vh; margin-top: 1vh;" onclick="submitComment('comment1', 'comments-container1')">SEND</button>
+                </div>
+                <div class="likes">
+                    <div class="like-count" data-count="0" id="like-count1">
+                        <button class="like-button" style="height: 3vh; font-size: 2vh;background-color: rgb(119, 119, 225);width: 100px;; border-radius: 1vh; margin-left: 1vh; margin-top: 1vh;">Likes</button>
+                        <span class="heart-symbol">❤</span>
+                        <span class="like-number">0</span>
+                    </div>
+                </div>
+                <div id="comments-container1"></div>
+            </div>      
+        </div>
+        <div class="projects details2" style="background-color:white; height: 70vh; width: 30%; margin-left: 8vh;">
+            <div class="projects details2" style="background-color:white; height: 60vh; width: 35%;">
+                <img src="sadana buddy.jpg" style="height:30vh ; width:285%;">
+                <h2 style="width: 45vh;">projects title:sample login and registration page</h2>
+                <h3 style="width: 45vh;">project type:software</h3>
+                <h3 style="width: 95vh;">Technologies used:mango DB,Express,React,<br>Node</h3>
+                <a href="software.html"><button id="software" style="height: 3vh; width: 10%; font-size: 2vh;background-color: rgb(119, 119, 225);width: 150px;; border-radius: 1vh; margin-left: 15vh;">VIEW Project</button></a>
+                <br><br><br>
+                <div class="commentsandlikessection">
+                    <div class="comment">  
+                        <input style="height: 4vh; width: 180px; font-size: 2.5vh; border-radius: 1vh; margin-left: 2vh;" type="text" id="comment2" placeholder="Comment.....">
+                    </div>
+                    <div class="send">
+                        <button style="height: 3vh; width: 10%; font-size: 2vh;background-color: rgb(119, 119, 225);width: 100px;; border-radius: 1vh; margin-left: 1vh; margin-top: 1vh;" onclick="submitComment('comment2', 'comments-container2')">SEND</button>
+                    </div>
+                    <div class="likes">
+                        <div class="like-count" data-count="0" id="like-count2">
+                            <button class="like-button" style="height: 3vh; font-size: 2vh;background-color: rgb(119, 119, 225);width: 100px;; border-radius: 1vh; margin-left: 1vh; margin-top: 1vh;">Likes</button>
+                            <span class="heart-symbol">❤</span>
+                            <span class="like-number">0</span>
+                        </div>
+                    </div>
+                    <div id="comments-container2"></div>
+                </div>
+            </div>  
+        </div>
+        <div class="projects details3" style="background-color:white; height: 70vh; width: 30%; margin-left: 10vh;">
+            <div class="projects details3" style="background-color:white; height: 60vh; width: 35%;">
+                <img src="mernstack.jpg" style="height:30vh;width:282%;"> 
+                <h2 style="width: 45vh;">projects title:sample login and registration page</h2>
+                <h3 style="width: 45vh;">project type:software</h3>
+                <h3 style="width: 95vh;">Technologies used:mango DB,Express,React,<br>Node</h3>
+                <a href="software.html"><button id="software" style="height: 3vh; width: 10%; font-size: 2vh;background-color: rgb(119, 119, 225);width: 150px;; border-radius: 1vh; margin-left: 15vh;">VIEW Project</button></a>
+                <br><br><br>
+                <div class="commentsandlikessection">
+                    <div class="comment">  
+                        <input style="height: 4vh; width: 180px; font-size: 2.5vh; border-radius: 1vh; margin-left: 2vh;" type="text" id="comment3" placeholder="Comment.....">
+                    </div>
+                    <div class="send">
+                        <button style="height: 3vh; width: 10%; font-size: 2vh;background-color: rgb(119, 119, 225);width: 100px;; border-radius: 1vh; margin-left: 1vh; margin-top: 1vh;" onclick="submitComment('comment3', 'comments-container3')">SEND</button>
+                    </div>
+                    <div class="likes">
+                        <div class="like-count" data-count="0" id="like-count3">
+                            <button class="like-button" style="height: 3vh; font-size: 2vh;background-color: rgb(119, 119, 225);width: 100px;; border-radius: 1vh; margin-left: 1vh; margin-top: 1vh;">Likes</button>
+                            <span class="heart-symbol">❤</span>
+                            <span class="like-number">0</span>
+                        </div>
+                    </div>
+                    <div id="comments-container3"></div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>
+
+<footer style="display: block;"><br>
+    <div class="footer">
+        <div class="first">
+            <p style="font-size: 2vh; margin-left: 20vh;">2023 Company, Inc</p>
+        </div>
+        <div class="images">
+            <a href=""><img style="margin-left: 120vh;" src="Screenshot 2024-04-19 182051.png"></a>
+        </div>
+        <div class="images">
+            <a href=""><img style="margin-left: 2vh; margin-top: 0.5vh;" src="Screenshot 2024-04-19 182112.png"></a>
+        </div>
+        <div class="images">
+            <a href=""><img style="margin-left: 2vh;" src="Screenshot 2024-04-19 182125.png"></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function handleLikeButtonClick(likeCountElement) {
+        let likeCount = parseInt(likeCountElement.getAttribute('data-count'));
+        likeCount++;
+        likeCountElement.setAttribute('data-count', likeCount);
+        likeCountElement.querySelector('.like-number').textContent = likeCount;
+        localStorage.setItem(likeCountElement.id, likeCount);
+    }
+
+    document.querySelectorAll('.like-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const likeCountElement = this.closest('.like-count');
+            handleLikeButtonClick(likeCountElement);
+        });
+    });
+
+    window.addEventListener('load', () => {
+        document.querySelectorAll('.like-count').forEach(likeCountElement => {
+            const savedLikeCount = localStorage.getItem(likeCountElement.id);
+            if (savedLikeCount !== null) {
+                likeCountElement.setAttribute('data-count', savedLikeCount);
+                likeCountElement.querySelector('.like-number').textContent = savedLikeCount;
+            }
+        });
+    });
+
+    function submitComment(commentInputId, commentsContainerId) {
+        const commentInput = document.getElementById(commentInputId);
+        const comment = commentInput.value;
+        
+        if (comment.trim() === "") return;
+        
+        const newComment = document.createElement("div");
+        newComment.classList.add("comment-box");
+        newComment.textContent = comment;
+
+        const commentsContainer = document.getElementById(commentsContainerId);
+        commentsContainer.appendChild(newComment);
+
+        const comments = JSON.parse(localStorage.getItem(commentsContainerId)) || [];
+        comments.push(comment);
+        localStorage.setItem(commentsContainerId, JSON.stringify(comments));
+
+        commentInput.value = "";
+    }
+
+    window.addEventListener("load", function() {
+        document.querySelectorAll('[id^=comments-container]').forEach(commentsContainer => {
+            const comments = JSON.parse(localStorage.getItem(commentsContainer.id)) || [];
+            comments.forEach(comment => {
+                const commentElement = document.createElement("div");
+                commentElement.classList.add("comment-box");
+                commentElement.textContent = comment;
+                commentsContainer.appendChild(commentElement);
+            });
+        });
+    });
+</script>
+</body>
+</html>

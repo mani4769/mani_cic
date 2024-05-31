@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <script>
+        function fun(value)
+        {
+            var output = document.getElementById("demo");
+            output.innerHTML += value;
+        }
+        function fun2()
+        {
+            var output = document.getElementById("demo");
+            output.innerHTML = "";
+        }
+        function fun3()
+        {
+            var output=document.getElementById("demo");
+            output.innerHTML=eval(output.innerHTML);
+        }
+        function fun4() {
+        var output = document.getElementById("demo");
+         output.innerHTML = output.innerHTML.toString().slice(0, -1);
+}
+
+    </script>
+    <h1 style="padding-left: 75vh; margin-top: 1%;">CALCULATOR</h1>
+    <div class="main">
+        <br><br><br>
+        <div class="result">
+            <p id="demo"></p>
+        </div>
+        <div class="keypad"><br>
+            <div class="row">
+                <div class="Ac"><button onclick="fun2()">AC</button></div>
+                <div class="de"><button onclick="fun4()">DE</button></div>
+                <div class="dot"><button onclick="fun('.')">.</button></div>
+                <div class="slash"><button onclick="fun('/')">/</button></div>
+            </div>
+            <div class="row">
+                <div class="seven"><button onclick="fun(7)">7</button></div>
+                <div class=" eight"><button onclick="fun(8)">8</button></div>
+                <div class=" nine"><button onclick="fun(9)">9</button></div>
+                <div class=" multiplication"><button onclick="fun('*')">*</button></div>
+            </div>
+            <div class="row">
+                <div class=" four"><button onclick="fun(4)">4</button></div>
+                <div class=" five"><button onclick="fun(5)">5</button></div>
+                <div class=" six"><button onclick="fun(6)">6</button></div>
+                <div class=" subtraction"><button onclick="fun('-')">-</button></div>
+            </div>
+            <div class="row">
+                <div class=" one"><button onclick="fun(1)">1</button></div>
+                <div class=" two"><button onclick="fun(2)">2</button></div>
+                <div class=" three"><button onclick="fun(3)">3</button></div>
+                <div class=" addition"><button onclick="fun('+')">+</button></div>
+            </div>
+            <div class="row">
+                <div class=" division"><button onclick="fun('00')">00</button></div>
+                <div class=" zero"><button onclick="fun(0)">0</button></div>
+                <div class=" equalto"><button onclick="fun3()">=</button></div>
+            </div>
+        </div> 
+    </div>
+</body>
+</html>

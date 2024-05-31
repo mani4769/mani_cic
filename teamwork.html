@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams Data</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            background-color: whitesmoke;
+            padding-right: 70%;
+            margin-top: 1%;
+            height: 9vh;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        nav ul li {
+            display: flex;
+            display: inline-block; 
+            margin-right: 20px; 
+            margin-top: 01px;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            color: black;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 10%;
+        }
+
+        .images {
+            margin-bottom: 20px; 
+        }
+        nav ul li:hover {
+            background-color: #f0f0f0;
+            transition: background-color 0.3s; 
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .TECHNOLOGYattedence {
+            margin-top: 10px; 
+            margin-left: vh;
+        }
+
+        .TECHNOLOGYattedence1,
+        .TECHNOLOGYattedence3 {
+            display: flex;
+        }
+
+        .TECHNOLOGYattedence2,
+        .TECHNOLOGYattedence3 {
+            margin-left: 50px; 
+        }
+
+        .TECHNOLOGYattedence1,.TECHNOLOGYattedence2,.TECHNOLOGYattedence3 ul li {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            margin-left: 1vh;
+        }
+
+        .TECHNOLOGYattedence li {
+            margin-bottom: 10px;
+            margin-top: 10vh;
+        }
+        .container {
+            display: flex;
+            margin-bottom: 10%;
+            justify-content: space-between;
+            height: 17vh;
+        }
+        .container > .attedence {
+            flex-grow: 1; 
+            margin: 0 10px; 
+        }
+        .TECHNOLOGYattedence li {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .TECHNOLOGYattedence1 ul li,
+        .TECHNOLOGYattedence3 ul li,
+        .TECHNOLOGYattedence2 ul li {
+            margin-left: px;
+            margin-bottom: 20px; 
+        }
+        .TECHNOLOGYattedence2 ul li {
+            list-style-type: none;
+        }
+        .streaksheading {
+            display: flex;
+            flex-direction: row;
+        }
+        #features {
+            display: flex;
+            flex-direction: row;
+        }
+        .footer {
+            display: flex;
+            flex-direction: row;
+        }
+        .name {
+            display: flex;
+            flex-direction: row;
+        }
+        .commentsandlikessection {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .team-select {
+            margin-top: 20px; 
+        }
+        #registrationForm {
+            width: 300px;
+        }
+
+        #registrationForm input[type=text],
+        #registrationForm input[type=email],
+        #registrationForm input[type=tel],
+        #registrationForm select,
+        #registrationForm input[type=submit] {
+            display: block;
+            margin-bottom: 20px;
+            width: calc(100% - 20px);
+        }
+
+        #registrationForm input[type=submit] {
+            background-color: blue;
+            cursor: pointer; 
+        }
+
+        .teamsheading {
+            height: 3vh;
+            width: 90%;
+            margin-left: 5vh;
+        }
+
+        .teams-1 {
+            margin-left: 1vh;
+            padding-top: 2vh;
+            font-size: 4vh;
+            color: chocolate;
+        }
+
+        .team-container {
+            background-color: whitesmoke;
+            height: 50vh;
+            margin-bottom: 20px;
+        }
+        .container {
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 3px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            white-space: nowrap;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr {
+            height: 8vh; 
+        }
+
+        th, td {
+            border: none; 
+        }
+        th:first-child,
+        td:first-child {
+            width: 20%; 
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 20%; 
+        }
+
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 20%; 
+        }
+
+        th:nth-child(4),
+        td:nth-child(4) {
+            width: 20%; 
+        }
+
+        th:nth-child(5),
+        td:nth-child(5) {
+            width: 20%; 
+        }
+    </style>
+</head>
+<body><br><br><br><div class="name">
+    <div class="first">
+      <img src="Screenshot 2024-04-19 185720.png" alt="mani" style="margin-left: 50vh; margin-top: 10%;width: 22%; height: 12vh;">
+    </div> 
+    <div class="second">    
+        <h1 style="margin-left: 10%;width: 200%; margin-top: 8vh; font-size: 70px; color: #d38585;display: flex;flex-direction: row;">AS-TEAMS APP'S</h1>
+        </div>
+        </div>
+
+        <nav style="background-color: white;">     
+            <ul style="margin-left: 10vh; font-size: 2.5vh;">
+                <li><a href="exams.html" style="color: green;">HOME</a></li>
+                <li><a href="studentregistration.html" style="color: green;">StudentRegistration</a></li>
+                <li><a href="exams.html" style="color: green;">Exam</a></li>
+                <li><a href="exams.html" style="color: green;">StudentData</a></li>
+                <li><a href="exam.html" style="color: BLUE;">Student Exam</a></li>
+                <li><a href="exams.html" style="color: green;">paperCorrection</a></li>
+                <li><a href="teamwork.html" style="color: green;">Studentscore</a></li>
+            </div>
+                </li>
+            </ul>
+        </nav><br>
+    <div class="team-container" style="margin-left: 3vh;">
+        <h3 style="margin-left: 83vh;font-size: 5vh;color: blue;">Team-1</h3>
+        <table id="team-1-table">
+            <thead style="color: #d38585;font-size: 3vh;">
+                <tr>
+                    <th>Registration Number</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>Year</th>
+                    <th>score</th>
+                </tr>
+            </thead>
+            <tbody id="team-1-body" style="color: green;">
+              
+            </tbody>
+        </table>
+    </div>
+
+    <div class="team-container" style="margin-left: 3vh;height: 45vh;">
+        <h3 style="margin-left: 83vh;font-size: 5vh;color: blue;">Team-2</h3>
+        <table id="team-2-table">
+            <thead style="color: #d38585;font-size: 3vh;">
+                <tr>
+                    <th>Registration Number</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>Year</th>
+                    <th>score</th>
+                </tr>
+            </thead>
+            <tbody id="team-2-body" style="color: green;">
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="team-container" style="margin-left: 3vh;">
+        <h3 style="margin-left: 83vh;font-size: 5vh;color: blue;">Team-3</h3>
+        <table id="team-3-table">
+            <thead style="color: #d38585;font-size: 3vh;">
+                <tr>
+                    <th>Registration Number</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>Year</th>
+                    <th>score</th>
+                </tr>
+            </thead>
+            <tbody id="team-3-body" style="color: green;">
+                
+            </tbody>
+        </table>
+    </div><div class="team-container" style="margin-left: 3vh;">
+        <h3 style="margin-left: 83vh;font-size: 5vh;color: blue;">Team-4</h3>
+        <table id="team-4-table">
+            <thead style="color: #d38585;font-size: 3vh;">
+                <tr>
+                    <th>Registration Number</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>Year</th>
+                    <th>score</th>
+                </tr>
+            </thead>
+            <tbody id="team-4-body" style="color: green;">
+                
+            </tbody>
+        </table>
+    </div><div class="team-container" style="margin-left: 3vh;">
+        <h3 style="margin-left: 83vh;font-size: 5vh;color: blue;">Team-5</h3>
+        <table id="team-5-table">
+            <thead style="color: #d38585;font-size: 3vh;">
+                <tr>
+                    <th>Registration Number</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>Year</th>
+                    <th>score</th>
+                </tr>
+            </thead>
+            <tbody id="team-5-body" style="color: green;">
+                
+            </tbody>
+        </table>
+    </div><div class="team-container" style="margin-left: 3vh;">
+        <h3 style="margin-left: 83vh;font-size: 5vh;color: blue;">Team-6</h3>
+        <table id="team-6-table">
+            <thead style="color: #d38585;font-size: 3vh;">
+                <tr>
+                    <th>Registration Number</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>Year</th>
+                    <th>score</th>
+                </tr>
+            </thead>
+            <tbody id="team-6-body" style="color: green;">
+                
+            </tbody>
+        </table>
+    </div><div class="team-container" style="margin-left: 3vh;height: 30vh;">
+        <h3 style="margin-left: 83vh;font-size: 5vh;color: blue;">Team-7</h3>
+        <table id="team-7-table">
+            <thead style="color: #d38585;font-size: 3vh;">
+                <tr>
+                    <th>Registration Number</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>Year</th>
+                    <th>score</th>
+                </tr>
+            </thead>
+            <tbody id="team-7-body" style="color: green;">
+                
+            </tbody>
+        </table>
+    </div>
+   
+
+    <script>
+     
+        const teamsData = {
+            1: [
+                { regNo: '21B91A5408', name: 'RAMSAI (LEAD)', branch: 'AIDS', year: '3', score: '20' },
+                { regNo: '21B91A5468', name: 'JEERU PRAVEEN', branch: 'AIDS', year: '3', score: '10' },
+                { regNo: '21B91A54I4', name: 'VEGI VENKATA KAVERI', branch: 'AIDS', year: '3', score: '' },
+                { regNo: '22B95A0503', name: 'BENDI KUSUMA SARANYA', branch: 'CSE', year: '3', score: '' }
+            ],
+            2: [
+                { regNo: '21B91A6107', name: 'GANESH (LEAD)', branch: 'AIML', year: '3', score: '4' },
+                { regNo: '21B91A5493', name: 'LINGISETTI ROHINI', branch: 'AIDS', year: '3', score: '' }
+            ],
+            3: [
+                { regNo: '	21B91A54B7', name: 'SANJAY KUMAR (LEAD)', branch: 'AIDS', year: '3', score: '9' },
+                { regNo: '	22B95A0520', name: 'MULA BHANU', branch: 'CSE', year: '3', score: '' },
+                { regNo: '	21B91A6157', name: 'T VARSHIT', branch: 'AIML', year: '3', score: '7' },
+                { regNo: '	21B91A54A2', name: 'DIVYA HARSHITHA MANDLA', branch: 'AIDS', year: '3', score: '' }
+            ],
+            4: [
+                { regNo: '	21B91A05T2', name: 'SIMMA TEJESWARARAO (LEAD)', branch: 'CSE', year: '3', score: '20' },
+                { regNo: '	21B91A54G1', name: 'SARAGADAM MURARI VENKATESH', branch: 'AIDS', year: '3', score: '6' },
+                { regNo: '	21B91A0428', name: 'CHARISHMA DASI', branch: 'ECE', year: '3', score: '' },
+                { regNo: '	21B91A04I3', name: 'PILLI.GAMYA GEETHIKA', branch: 'ECE', year: '3', score: '20' }
+            ],
+            5: [
+                { regNo: '	21B91A0454', name: 'SRIRAM GANDROTHU (LEAD)', branch: 'ECE', year: '3', score: '12' },
+                { regNo: '21B91A1291', name: 'MANDALA NAGABHUSHAN', branch: 'IT', year: '3', score: '' },
+                { regNo: '	21B91A5482', name: 'KEERTANA PENUGONDA', branch: 'AIDS', year: '3', score: '3' },
+                { regNo: '	22B95A0529', name: 'Y.CHARISHMA', branch: 'CSE', year: '3', score: '' }
+            ],
+            6: [
+                { regNo: '	21B91A1225', name: 'B SAILAKSHMI (LEAD)', branch: 'IT', year: '3', score: '13' },
+                { regNo: '	21B91A1223', name: 'BONTHAGARLA TEJASWI', branch: 'IT', year: '3', score: '' },
+                { regNo: '	21B91A12G1', name: 'SHAIK MOHAMMED HANEEF', branch: 'IT', year: '3', score: '5' },
+                { regNo: '	21B91A5487', name: 'KOTA.GOWRI', branch: 'AIDS', year: '3', score: '' }
+            ],
+            7: [
+                { regNo: '	22B91A4752', name: 'THIRUMALLA SAI NAGA MANIKANTA(Lead)', branch: 'CIC', year: '3', score: '25' }
+            ]
+        };
+
+       
+        function generateTableRows(teamData) {
+            let rows = '';
+            teamData.forEach(student => {
+                rows += `
+                    <tr>
+                        <td>${student.regNo}</td>
+                        <td>${student.name}</td>
+                        <td>${student.branch}</td>
+                        <td>${student.year}</td>
+                        <td>${student.score}</td>
+
+                    </tr>
+                `;
+            });
+            return rows;
+        }
+
+       
+        document.getElementById('team-1-body').innerHTML = generateTableRows(teamsData[1]);
+         document.getElementById('team-2-body').innerHTML = generateTableRows(teamsData[2]);
+        document.getElementById('team-3-body').innerHTML = generateTableRows(teamsData[3]);
+        document.getElementById('team-4-body').innerHTML = generateTableRows(teamsData[4]);
+        document.getElementById('team-5-body').innerHTML = generateTableRows(teamsData[5]);
+        document.getElementById('team-6-body').innerHTML = generateTableRows(teamsData[6]);
+        document.getElementById('team-7-body').innerHTML = generateTableRows(teamsData[7]);
+
+       
+
+    </script>
+</body>
+</html>

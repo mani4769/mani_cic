@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav {
+            background-color: #007bff;
+            padding-right: 70%;
+            margin-top: 1%;
+            height: 9vh;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        nav ul li {
+            display: flex;
+            display: inline-block; 
+            margin-right: 20px; 
+            margin-top: 01px;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            color: black;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 10%;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 25px; /* Adjust this value as needed */
+            margin-left: -50px; /* Adjust this value as needed */
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        body { font-family: Arial, sans-serif; }
+       .header { background-color: #007bff; padding: 10px; color: white; }
+       .container { padding: 20px; }
+       .section { background-color: #f2f2f2; border-radius: 10px; margin-bottom: 10px; padding: 20px; }
+        .start-btn { display: block; width: 100px; padding: 10px; margin-top: 20px; background-color: green; color: white; text-align: center; border: none; border-radius: 5px; cursor: pointer; }
+        .checkbox { margin-right: 5px; }
+    </style>
+</head>
+<body>
+    <nav>     
+        <ul>
+            <li><h2 style="margin-left: 7%; margin-top: 1px;font-size: 4vh;color: white;">EXAM PORTAL</h2></li>
+            <li class="dropdown" onclick="toggleDropdown()"> 
+                <img src="loginprofile.jpg" alt="" style="height: 4vh; margin-left: 140ch;height: 6vh;margin-top: 1vh;">
+                <div id="dropdownOptions" class="dropdown-content" style="margin-left: 130ch;">
+                    <a href="profile.html">PROFILE</a>
+                    <a href="exam.html">LOGOUT</a>
+                   
+                </div>
+            </li>
+        </ul>
+    </nav> <br><br>
+        
+          <div class="container" style="height: 70vh; width: 70vh; background-color: whitesmoke; margin-left: 50vh;">
+           <h1 style="margin-left: 15vh;">EXAM INSTRUCTIONS</h1><br>
+               <ul style="margin-left: 12vh;margin-top: 2vh;">
+                <li style="margin-top: 2vh;">25 Questions in 90 Minutes...</li>
+                <li style="margin-top: 2vh;">Switch off Mobiles...</li>
+                <li style="margin-top: 2vh;">Close Irrelevant Tabs & windows...</li>
+                <li style="margin-top: 2vh;">No Copy, Paste, Print content...</li>
+                <li style="margin-top: 2vh;">DO sadana reguraly then brain should work fast</li>
+                <li style="margin-top: 2vh;">don't ask the answers.....</li>
+                <li style="margin-top: 2vh;">don't waste time while writing exam.....</li>
+                <li style="margin-top: 2vh;">All the best and gain the good result....</li>
+               </ul><br><br>
+               <div class="INSTRUCTIONS" style="margin-left: 7vh;">
+               <p>Note: All questions are compulsory...</p>
+               <label><input type="checkbox" class="checkbox">I have read and understood the guidelines.</label>
+               <button class="start-btn" style="margin-left: 20vh;">START</button>
+               </div>
+            </div>
+      <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownOptions");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+    document.querySelector('.start-btn').addEventListener('click', function() {
+    if(document.querySelector('.checkbox').checked) {
+     
+      window.location.href="takeexam.html";
+    } else {
+      alert('Please read and understand the guidelines before starting.');
+    }
+  });
+    </script>
+</body>
+</html>

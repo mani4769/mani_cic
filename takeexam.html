@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            height: 250vh;
+        }
+        nav {
+            background-color: #007bff;
+            padding-right: 70%;
+            margin-top: 1%;
+            height: 9vh;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        nav ul li {
+            display: flex;
+            display: inline-block; 
+            margin-right: 20px; 
+            margin-top: 01px;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            color: black;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 10%;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 25px; 
+            margin-left: -50px; 
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .question-container {
+            margin-top: 20px;
+            display: none; /* Initially hide all question containers */
+        }
+
+        .whitesmoke {
+            background-color: whitesmoke;
+            margin-left: 40vh;
+            width: 100vh;
+        }
+
+        .resizable-textarea {
+            resize: both;
+            overflow: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>     
+        <ul>
+            <li><h2 style="margin-left: 7%; margin-top: 1px;font-size: 4vh;color: white;">EXAM PORTAL</h2></li>
+            <li class="dropdown" onclick="toggleDropdown()"> 
+                <img src="loginprofile.jpg" alt="" style="height: 4vh; margin-left: 150ch;height: 6vh;margin-top: 1vh;">
+                <div id="dropdownOptions" class="dropdown-content" style="margin-left: 140ch;">
+                    <a href="profile.html">PROFILE</a>
+                    <a href="exam.html">LOGOUT</a>
+                </div>
+            </li>
+        </ul>
+    </nav><br><br>
+    <div class="timing" style="display: flex; flex-direction: row; margin-left: 1100px;">
+        <div class="start">
+            <button onclick="startExam()" style="color: #822e82; margin-right: 5vh; width: 18vh;height: 4vh;font-size: 2vh;">START EXAM</button>
+        </div>
+        <div class="end">
+            <button onclick="submitExam()" style="color: #822e82; margin-right: 5vh; width: 18vh;height: 4vh;font-size: 2vh;">SUBMIT EXAM</button>
+        </div>
+    </div><br>
+    <div class="settimeout" style="margin-left: 2vh;font-size: 3vh;color: #822e82;">
+        
+    </div><br><br>
+    <ul style="list-style-type: none;">
+        <li style="display: inline;">
+            <button onclick="showQuestions('fill-in-blanks')" style="height:4vh ;width: 8%;background-color: #822e82;color: white;font-size: 1.7vh;margin-left: 35vh;" id="fill-in-blanks-btn">Fill in the blanks</button>
+        </li>
+        <li style="display: inline;">
+            <button onclick="showQuestions('choose-correct-answers')" style="height: 4vh;width: 15%;background-color: #822e82;color: white;font-size: 1.9vh;margin-left: 25vh;">Choose the correct answers</button>
+        </li>
+        <li style="display: inline;">
+            <button onclick="showQuestions('questions')" style="height:4vh ;width: 8%;background-color: #822e82;color: white;font-size: 2.2vh;margin-left: 25vh;">Questions</button>
+        </li>
+    </ul>
+    <div class="question-container" id="fill-in-blanks" style="height: 100vh;">
+        <h3 style="margin-left:70vh; margin-top: 10vh;font-size: 3vh;">Fill in the blanks Questions</h3>
+        <div class="whitesmoke" id="fill-in-blanks-div" style="height: 118vh;"><br>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 1: What keyword declares a variable in JavaScript?.</p>
+            <textarea class="resizable-textarea" oninput="resizeDiv('fill-in-blanks-div')" style="margin-top: 1vh;margin-left: 7vh;width: 80%;height: 10vh;font-size: 2.5vh;"></textarea>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 2: What is the symbol used for comments in JavaScript?.</p>
+            <textarea class="resizable-textarea" oninput="resizeDiv('fill-in-blanks-div')" style="margin-top: 1vh;margin-left: 7vh;width: 80%;height: 10vh;font-size: 2.5vh;"></textarea>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 3:Which operator is used for strict equality comparison?</p>
+            <textarea class="resizable-textarea" oninput="resizeDiv('fill-in-blanks-div')" style="margin-top: 1vh;margin-left: 7vh;width: 80%;height: 10vh;font-size: 2.5vh;"></textarea>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 4:What is the purpose of the NaN value in JavaScript?</p>
+            <textarea class="resizable-textarea" oninput="resizeDiv('fill-in-blanks-div')" style="margin-top: 1vh;margin-left: 7vh;width: 80%;height: 10vh;font-size: 2.5vh;"></textarea>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 5:Which keyword is used to declare a function in JavaScript?</p>
+            <textarea class="resizable-textarea" oninput="resizeDiv('fill-in-blanks-div')" style="margin-top: 1vh;margin-left: 7vh;width: 80%;height: 10vh;font-size: 2.5vh;"></textarea>
+        
+        </div>
+    </div>
+    <div class="question-container" id="choose-correct-answers" style="height: 100vh;">
+        <h3 style="margin-left:70vh; margin-top: 10vh;font-size: 3vh;">Choose the correct answers Questions</h3>
+        <div class="whitesmoke" id="choose-correct-answers-div" style="height: 159vh;"><br>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 1: What does DOM stand for?</p>
+            <input type="radio" id="dom-question1" name="dom-question" value="document-object-model" style="margin-left: 7vh;transform: scale(1.5);"><label for="dom-question1" style="font-size: 3.5vh; margin-top: 1vh;">Document Object Model</label><br>
+            <input type="radio" id="dom-question2" name="dom-question" value="document-oriented-markup" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="dom-question2" style="font-size: 3vh; margin-top: 1vh;">Document Oriented Markup</label><br>
+            <input type="radio" id="dom-question3" name="dom-question" value="dynamic-object-management" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="dom-question3" style="font-size: 3vh; margin-top: 1vh;">Dynamic Object Management</label><br>
+            <input type="radio" id="dom-question4" name="dom-question" value="data-operation-module" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="dom-question4" style="font-size: 3vh; margin-top: 1vh;">Data Operation Module</label><br>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 2: Which keyword is used to declare variables in JavaScript?</p>
+            <input type="radio" id="var-question1" name="variable-declaration" value="var" style="margin-left: 7vh;transform: scale(1.5);"><label for="var-question1" style="font-size: 3.5vh; margin-top: 1vh;">var</label><br>
+            <input type="radio" id="var-question2" name="variable-declaration" value="dim" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="var-question2" style="font-size: 3vh; margin-top: 1vh;">dim</label><br>
+            <input type="radio" id="var-question3" name="variable-declaration" value="variable" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="var-question3" style="font-size: 3vh; margin-top: 1vh;">variable</label><br>
+            <input type="radio" id="var-question4" name="variable-declaration" value="v" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="var-question4" style="font-size: 3vh; margin-top: 1vh;">v</label><br>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 3: Which of the following is not a data type in JavaScript?</p>
+            <input type="radio" id="data-question1" name="data-type" value="string" style="margin-left: 7vh;transform: scale(1.5);"><label for="data-question1" style="font-size: 3.5vh; margin-top: 1vh;">string</label><br>
+            <input type="radio" id="data-question2" name="data-type" value="boolean" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="data-question2" style="font-size: 3vh; margin-top: 1vh;">boolean</label><br>
+            <input type="radio" id="data-question3" name="data-type" value="number" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="data-question3" style="font-size: 3vh; margin-top: 1vh;">number</label><br>
+            <input type="radio" id="data-question4" name="data-type" value="character" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="data-question4" style="font-size: 3vh; margin-top: 1vh;">character</label><br>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 4: What does AJAX stand for?</p>
+            <input type="radio" id="ajax-question1" name="ajax" value="asynchronous-javascript-and-xml" style="margin-left: 7vh;transform: scale(1.5);"><label for="ajax-question1" style="font-size: 3vh; margin-top: 1vh;">Asynchronous JavaScript and XML</label><br>
+            <input type="radio" id="ajax-question2" name="ajax" value="advanced-javascript-and-xml" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="ajax-question2" style="font-size: 3vh; margin-top: 1vh;">Advanced JavaScript and XML</label><br>
+            <input type="radio" id="ajax-question3" name="ajax" value="asynchronous-javascript-and-xhtml" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="ajax-question3" style="font-size: 3vh; margin-top: 1vh;">Asynchronous JavaScript and XHTML</label><br>
+            <input type="radio" id="ajax-question4" name="ajax" value="advanced-javascript-and-xhtml" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="ajax-question4" style="font-size: 3vh; margin-top: 1vh;">Advanced JavaScript and XHTML</label><br>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 5: Which built-in method calls a function for each element in the array?</p>
+            <input type="radio" id="array-question1" name="array-method" value="every" style="margin-left: 7vh;transform: scale(1.5);"><label for="array-question1" style="font-size: 3.5vh; margin-top: 1vh;">every()</label><br>
+            <input type="radio" id="array-question2" name="array-method" value="foreach" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="array-question2" style="font-size: 3vh; margin-top: 1vh;">forEach()</label><br>
+            <input type="radio" id="array-question3" name="array-method" value="filter" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="array-question3" style="font-size: 3vh; margin-top: 1vh;">filter()</label><br>
+            <input type="radio" id="array-question4" name="array-method" value="map" style="margin-left: 7vh;transform: scale(1.5);margin-top: 1.5vh;"><label for="array-question4" style="font-size: 3vh; margin-top: 1vh;">map()</label><br>
+        </div>
+    </div>
+    
+    
+    <div class="question-container" id="questions" style="height: 100vh;">
+        <h3 style="margin-left:80vh; margin-top: 10vh;font-size: 3vh;">Question and Answers</h3>
+        <div class="whitesmoke" id="fill-in-blanks-div" style="height: 130vh;"><br>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 1: What is the purpose of the "this" keyword in JavaScript?.</p>
+            <textarea class="resizable-textarea" oninput="resizeDiv('fill-in-blanks-div')" style="margin-top: 1vh;margin-left: 7vh;width: 80%;height: 10vh;font-size: 2.5vh;"></textarea>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 2: What are use of strings in JavaScript?.</p>
+            <textarea class="resizable-textarea" oninput="resizeDiv('fill-in-blanks-div')" style="margin-top: 1vh;margin-left: 7vh;width: 80%;height: 10vh;font-size: 2.5vh;"></textarea>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 3:What does the typeof operator do in JavaScript?</p>
+            <textarea class="resizable-textarea" oninput="resizeDiv('fill-in-blanks-div')" style="margin-top: 1vh;margin-left: 7vh;width: 80%;height: 10vh;font-size: 2.5vh;"></textarea>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 4:Which method is used to add a new element to the end of an array?</p>
+            <textarea class="resizable-textarea" oninput="resizeDiv('fill-in-blanks-div')" style="margin-top: 1vh;margin-left: 7vh;width: 80%;height: 10vh;font-size: 2.5vh;"></textarea>
+            <p style="margin-top: 4vh;margin-left: 7vh;font-size: 3vh;color: #822e82;">Question 5:What does the === operator do in JavaScript?</p>
+            <textarea class="resizable-textarea" oninput="resizeDiv('fill-in-blanks-div')" style="margin-top: 1vh;margin-left: 7vh;width: 80%;height: 10vh;font-size: 2.5vh;"></textarea>
+        
+        
+    </div>
+    <script>
+        var examStarted = false;
+
+        function startExam() {
+            examStarted = true;
+            alert('The test will start now.');
+            startTimer();
+            showQuestions();
+            const question1=document.getElementById("dom-question1").innerHTML;
+            console.log(" What does DOM stand for?" + ":" + question1);
+        }
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownOptions");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        function showQuestions(id) {
+            if (examStarted) {
+                var questionContainers = document.querySelectorAll('.question-container');
+                questionContainers.forEach(function(container) {
+                    container.style.display = 'none'; 
+                });
+                document.getElementById(id).style.display = 'block'; 
+            } else {
+                alert("Please start the exam first.");
+            }
+        }
+
+        function resizeDiv(id) {
+            var textarea = document.getElementById(id).querySelector('textarea');
+            var div = document.getElementById(id);
+       
+        }
+
+        var examDuration = 90 * 60; 
+        var timerInterval;
+
+        function startTimer() {
+            var timerDiv = document.querySelector('.settimeout');
+            timerInterval = setInterval(function() {
+                examDuration--;
+                if (examDuration <= 0) {
+                    clearInterval(timerInterval);
+                } else {
+                    var minutes = Math.floor(examDuration / 60);
+                    var seconds = examDuration % 60;
+                    timerDiv.textContent = 'Time Left: ' + minutes + 'm ' + seconds + 's';
+                }
+            }, 1000);
+        }
+
+        function submitExam() {
+            clearInterval(timerInterval);
+            var questionContainers = document.querySelectorAll('.question-container');
+            questionContainers.forEach(function(container) {
+                container.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>

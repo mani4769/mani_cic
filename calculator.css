@@ -1,0 +1,74 @@
+.main {
+    background-color: whitesmoke;
+    height: 80vh;
+    width: 40%;
+    margin-left: 27%;
+    margin-top: 06%;
+}
+
+.result {
+    background-color: aliceblue;
+    height: 10vh;
+    width: 70%;
+    margin-left: 7vh;
+}
+
+.keypad {
+    margin-top: 20px;
+}
+
+.row {
+    display: flex;
+}
+
+.Ac,.de,.seven,.eight,.six,.four,.five,.three,.two,.one,.nine,.dot {
+    background-color: wheat;
+    height: 10vh;
+    width: 23%;
+    margin: 5px;
+    border-radius: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.multiplication, .subtraction,.slash, .addition, .division, .zero, .equalto{
+    background-color: pink;
+    height: 10vh;
+    width: 23%;
+    margin: 5px;
+    border-radius: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+}
+
+.zero {
+    width: 47%;
+}
+
+.equalto {
+    background-color: lightblue;
+}
+button {
+    border: none; 
+    outline: none;
+    background-color: aliceblue; 
+    padding: 10px 20px; 
+    font-size: 18px; 
+    cursor: pointer; 
+    margin: 5px; 
+    border-radius: 5px; 
+}
+
+button:hover {
+    background-color: #e0e0e0; 
+}
+
+.result {
+     margin-top: 1vh;
+    font-size: 24px; 
+  
+}

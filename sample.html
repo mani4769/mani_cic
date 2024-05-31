@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunch</title>
+    <link rel="stylesheet" href="sample.css">
+</head>
+<body id="bcolour">
+  <script>
+    function m() {
+        window.alert("Submitted successfully!");
+    }
+    function fun(objId)
+    {
+      var x=document.getElementById(objId).value;
+      console.log(objId+ ":" + x);
+    } 
+    function uppercase(yId) {
+      const ycontent = document.getElementById(yId); 
+      ycontent.value = ycontent.value.toUpperCase(); 
+    }
+    function mover(obj) {
+     obj.style.backgroundColor="lightgray"
+    }
+   function mout(obj) {
+    obj.style.backgroundColor="lightpink"
+   }
+   function moutna(obj) {
+     obj.style.backgroundColor="wheat"
+    }
+    function moverna(obj) {
+    obj.style.backgroundColor="whitesmoke"
+    }
+    function moutnas(obj) {
+     obj.style.backgroundColor="whitesmoke"
+    }
+    function movernas(obj) {
+    obj.style.backgroundColor="wheat"
+    }
+      function movers(ob) {
+        ob.style.height = '30px';
+        ob.style.fontsize = '300px';
+        ob.style.backgroundColor="lightblue "
+      }
+      setTimeout(myfunction,2000);setTimeout(myfunction2,4000);setTimeout(myfunction,6000);setTimeout(myfunction2,8000);setTimeout(myfunction,10000);setTimeout(myfunction2,12000);
+      setTimeout(myfunction,14000);setTimeout(myfunction2,16000);setTimeout(myfunction,18000);setTimeout(myfunction2,20000);setTimeout(myfunction,22000);setTimeout(myfunction2,24000);
+      setTimeout(myfunction,26000);setTimeout(myfunction2,28000);setTimeout(myfunction,30000);setTimeout(myfunction2,32000);setTimeout(myfunction,34000);setTimeout(myfunction2,36000);
+      setTimeout(myfunction,38000);setTimeout(myfunction2,40000);setTimeout(myfunction,42000);setTimeout(myfunction2,44000);setTimeout(myfunction,46000);setTimeout(myfunction2,48000);
+      function myfunction()
+      {
+        document.getElementById("bcolour").style.backgroundColor="rgb(231, 210, 214)";
+      }
+      function myfunction2()
+      {
+        document.getElementById("bcolour").style.backgroundColor="whitesmoke";
+      }
+      
+  </script>
+     <img src="backgroundimage.jpg" alt="Image" style="position: fixed; top: 0; right: 0; width: 40px; z-index: 9999;padding-top: 1.3%; height: 4vh; padding-right: 89%;">
+    <h1 style="color: red; padding-right: 10%;">HUNCH</h1><hr><br><br>
+  <div class="border"onmouseover="movernas(this)" onmouseout="moutnas(this)"><br>
+    <div class="border2" onmouseover="moverna(this)" onmouseout="moutna(this)"><br><br>
+       <div class="content">
+        <h1 style="padding-left: 35%;">Create a New Account</h1><br>
+        <P style="padding-left: 10%;">Come join the Hunch community! Let's set up your account. Already have one?<a href="signuppage.html"><span style="color: blue;"href="nextpage.html">Sign in here</span></a></P><br>
+        <div class="mani">
+            <div class="mani2">
+        <p style="padding-left: 10%;">Why be old fashioned?</p>
+        <p style="padding-left: 10%;">Just sign in with</p>
+        <button style="margin-left: 10%;padding-right: 3%;background-color:rgb(25, 25, 87);color: white;text-align: center; height: 4vh; width: 100px; font-size: 20px;" onclick="window.location.href='https://www.facebook.com/login/';"value="fecebook" id="facebook">facebook</button><br><br>
+        <button style="margin-left: 10%; padding-right: 5%;background-color: rgb(33, 171, 225);color: white;text-align: center; height: 4vh; width: 100px; font-size: 28px;"onclick="window.location.href='https://twitter.com/i/flow/login?lang=en';"value="twitter" id="twitter">twitter</button>
+            </div><br>
+            <div class="mani3">
+              <form onsubmit="m()">
+                <label for="FistName">FirstName:</label>
+               <input style="height: 2vh; width: 35%;" type="text" id="FirstName" placeholder="enter firstname" required onchange="fun('FirstName')" oninput="uppercase('FirstName')" onmouseover="mover(this)" onmouseout="mout(this)">
+                <br><br>
+                <label for="middleName">MiddleName:</label>
+               <input style="height: 2vh; width: 31.5%;" type="text" id="middleName" placeholder="enter middleName" required onchange="fun('middleName')" oninput="uppercase('middleName')" onmouseover="mover(this)" onmouseout="mout(this)">
+                <br><br>
+                <label for="LastName">LastName:</label>
+               <input style="height: 2vh; width: 35%;"type="text" id="LastName" placeholder="enter LastName" required onchange="fun('LastName')" oninput="uppercase('LastName')" onmouseover="mover(this)" onmouseout="mout(this)">
+                <br><br>
+                <label for="email">Email:</label>
+                <input style="height: 2vh; width: 40%;" type="email" id="email" name="email" placeholder="Enter your email" required  onchange="fun('email')" onmouseover="mover(this)" onmouseout="mout(this)">
+                <br><br>
+                <label for="phone">Phone Number:</label>
+                <input style="height: 2vh; width: 30%;" type="tel" id="phone" placeholder="phoneno" required onchange="fun('phone')" onmouseover="mover(this)" onmouseout="mout(this)"><br>
+                <p>By submitting this form you agree to Hunchs <span style="color: blue;"href="nextpage.html">Terms of services</span></p>
+               <button type="submit" style=" height: 2%; width: 20%; font-size: 15px;" onmouseover="movers(this)">SUBMIT</button>
+            </form>
+        
+
+            </div>
+     </div>
+       </div>
+        
+    </div>
+  </div>
+
+</body>
+</html>
